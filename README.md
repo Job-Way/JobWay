@@ -63,4 +63,27 @@ ENTREGUE ARQUIVO PDF OU LINK DO GITHUB
 7- Como um gerente de logística, eu quero ser capaz de gerenciar as informações dos cuidadores, como horários de trabalho e habilidades, para que eu possa atribuir as visitas domiciliares de forma eficiente.
  Os itens do backlog podem ser priorizados e refinados ao longo do tempo, à medida que a equipe de desenvolvimento trabalha no projeto e recebe feedback dos usuários finais.
 
+Padrão de projeto:
+
+O padrão Prototype é usado quando você precisa criar novos objetos, mas deseja evitar a sobrecarga de criar cada objeto do zero. Em vez disso, você cria um objeto inicial (o protótipo) e faz cópias desse objeto quando necessário, modificando-as conforme necessário. No contexto do aplicativo de gestão de rotas, você pode ter um objeto "Rota" como protótipo e fazer cópias desse objeto para cada enfermeiro quando necessário. Cada cópia da rota pode ser personalizada com detalhes específicos, como o paciente a ser visitado, o tempo estimado de chegada, os recursos médicos necessários, etc. Isso permite que você economize tempo e recursos ao criar novas rotas para cada enfermeiro, aproveitando o protótipo existente.
+
+A Classe "Hospital" receberá os dados da instituição. 
+A classe "Rotas" terá dependência da classe "Hospital" e irá ter os atributos de localização, data e hora da rota agendada, acesso aos dados do paciente e funcionário. 
+A classe "Paciênte" terá dependência da classe "Hospital", nessa classe serão trabalhados os cadastros do paciênte. 
+A classe "Funcionário" receberá os dados do funcionário a ser cadastrado e exibirá as rotas programadas daquele funcionário. 
+
+Hospital:
+A classe Hospital representa um hospital e contém informações como nome e endereço do hospital. Esta classe é responsável por criar e gerenciar objetos do tipo Enfermeiro, Paciente e Rota.
+
+Enfermeiro:
+A classe Enfermeiro representa um enfermeiro e contém informações como nome e especialização. Essa classe é usada como protótipo para a criação de enfermeiros adicionais. Por meio do padrão Prototype, um objeto Enfermeiro pode ser clonado para criar cópias personalizadas para cada Rota.
+
+Paciente:
+A classe Paciente representa um paciente e pode conter informações adicionais, como nome, histórico médico, etc. Os objetos Paciente são associados às Rotas para indicar o paciente que será atendido.
+
+Rota:
+A classe Rota representa uma rota específica que um enfermeiro deve seguir para atender um paciente em um determinado momento. Essa classe contém informações detalhadas sobre a rota, como o paciente a ser visitado, o enfermeiro designado e outros detalhes relevantes. Por meio do padrão Prototype, um objeto Rota pode ser clonado a partir de um protótipo para criar rotas personalizadas para cada enfermeiro.
+
+No padrão Prototype, a criação de objetos ocorre por meio de clonagem de protótipos existentes, em vez de criar objetos do zero. Isso ajuda a economizar tempo e recursos, já que você pode criar cópias modificadas de objetos existentes. No caso do aplicativo de gestão de rotas, a clonagem de objetos Enfermeiro e Rota permite criar instâncias personalizadas para cada enfermeiro e paciente, adaptando-se às necessidades individuais de cada rota de atendimento domiciliar.
+
 
